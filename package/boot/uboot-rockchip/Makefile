@@ -111,6 +111,13 @@ endef
 
 # RK3399 boards
 
+define U-Boot/fine3399-rk3399
+  $(U-Boot/rk3399/Default)
+  NAME:=Fine 3399
+  BUILD_DEVICES:= \
+    rumu3f_fine-3399
+endef
+
 define U-Boot/rk3399/Default
   BUILD_SUBTARGET:=armv8
   DEPENDS:=+PACKAGE_u-boot-$(1):trusted-firmware-a-rk3399
@@ -316,6 +323,13 @@ define U-Boot/rk3588/Default
   DEPENDS:=+PACKAGE_u-boot-$(1):trusted-firmware-a-rk3588
   ATF:=$(RK3588_ATF)
   TPL:=$(RK3588_TPL)
+endef
+
+define U-Boot/lubancat-5-rk3588
+  $(U-Boot/rk3588/Default)
+  NAME:=lubancat-5
+  BUILD_DEVICES:= \
+    embedfire_lubancat-5
 endef
 
 define U-Boot/cyber3588-aib-rk3588
